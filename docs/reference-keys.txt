@@ -5,7 +5,10 @@ intro
 literature
 statistical-models
 linear-models-in-r
+<<<<<<< HEAD
 estimating-linear-model-parameters
+=======
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 applications
 example-one
 example-two

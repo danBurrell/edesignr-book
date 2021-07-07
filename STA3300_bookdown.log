@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2020.1.4)  8 JUL 2021 00:15
+=======
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2020.1.4)  8 JUL 2021 00:10
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 entering extended mode
 **./STA3300_bookdown.tex
 (STA3300_bookdown.tex
@@ -1096,6 +1100,7 @@ File: STA3300_bookdown_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (t
 ype pdf)
 <use STA3300_bookdown_files/figure-latex/unnamed-chunk-5-1.pdf>
 [13]
+<<<<<<< HEAD
 Overfull \hbox (59.25pt too wide) in paragraph at lines 371--371
 []\TU/lmtt/m/n/10 ##   term        estimate std.error statistic      p.value co
 nf.low conf.high[] 
@@ -1117,6 +1122,29 @@ Overfull \hbox (59.25pt too wide) in paragraph at lines 371--371
 Overfull \hbox (54.0pt too wide) in paragraph at lines 371--371
 []\TU/lmtt/m/n/10 ## 2 X              0.924    0.0441    21.0   0.0000000281   
  0.823     1.03[] 
+=======
+Overfull \hbox (54.0pt too wide) in paragraph at lines 371--371
+[]\TU/lmtt/m/n/10 ##   term        estimate std.error statistic     p.value con
+f.low conf.high[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 371--371
+[]\TU/lmtt/m/n/10 ##   <chr>          <dbl>     <dbl>     <dbl>       <dbl>    
+<dbl>     <dbl>[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 371--371
+[]\TU/lmtt/m/n/10 ## 1 (Intercept)   -0.286    0.339     -0.842 0.424         -
+1.07      0.497[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 371--371
+[]\TU/lmtt/m/n/10 ## 2 X              0.930    0.0547    17.0   0.000000145    
+0.804     1.06[] 
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
  []
 
 [14]
@@ -1133,8 +1161,13 @@ Overfull \hbox (6.75pt too wide) in paragraph at lines 413--413
 
 
 Overfull \hbox (6.75pt too wide) in paragraph at lines 413--413
+<<<<<<< HEAD
 []\TU/lmtt/m/n/10 ## 1 X        0.907    0.0195      46.5 4.88e-12    0.863    
  0.951[] 
+=======
+[]\TU/lmtt/m/n/10 ## 1 X        0.890    0.0249      35.7 5.24e-11    0.833    
+ 0.946[] 
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
  []
 
 
@@ -1151,8 +1184,13 @@ dbl> <dbl> <dbl>[]
 
 
 Overfull \hbox (59.25pt too wide) in paragraph at lines 435--435
+<<<<<<< HEAD
 []\TU/lmtt/m/n/10 ## 1     0.996         0.995 0.382        NA      NA    NA  -
 4.04  12.1  12.7[] 
+=======
+[]\TU/lmtt/m/n/10 ## 1     0.993         0.992 0.489        NA      NA    NA  -
+6.51  17.0  17.6[] 
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
  []
 
 
@@ -1162,6 +1200,7 @@ int>, nobs <int>[]
  []
 
 [15]
+<<<<<<< HEAD
 Overfull \hbox (54.0pt too wide) in paragraph at lines 462--462
 []\TU/lmtt/m/n/10 ##        Y     X .fitted .se.fit  .resid    .hat .sigma  .co
 oksd .std.resid[] 
@@ -1177,10 +1216,28 @@ dbl>      <dbl>[]
 Overfull \hbox (48.75pt too wide) in paragraph at lines 462--462
 []\TU/lmtt/m/n/10 ##  1 0.829     1   0.907  0.0195 -0.0773 0.00260  0.404 0.00
 0107    -0.202[] 
+=======
+Overfull \hbox (43.5pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ##        Y     X .fitted .se.fit .resid    .hat .sigma .cook
+sd .std.resid[] 
  []
 
 
 Overfull \hbox (43.5pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ##    <dbl> <int>   <dbl>   <dbl>  <dbl>   <dbl>  <dbl>   <db
+l>      <dbl>[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ##  1 0.350     1   0.890  0.0249 -0.540 0.00260  0.482 0.003
+19     -1.11[] 
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 462--462
+<<<<<<< HEAD
 []\TU/lmtt/m/n/10 ##  2 1.20      2   1.81   0.0390 -0.610  0.0104   0.343 0.02
 70      -1.60[] 
  []
@@ -1213,10 +1270,45 @@ Overfull \hbox (43.5pt too wide) in paragraph at lines 462--462
 Overfull \hbox (48.75pt too wide) in paragraph at lines 462--462
 []\TU/lmtt/m/n/10 ##  7 6.55      7   6.35   0.136   0.203  0.127    0.398 0.04
 73       0.570[] 
+=======
+[]\TU/lmtt/m/n/10 ##  2 1.60      2   1.78   0.0498 -0.175 0.0104   0.515 0.001
+35     -0.359[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ##  3 3.21      3   2.67   0.0747  0.536 0.0234   0.482 0.029
+5       1.11[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ##  4 2.60      4   3.56   0.0997 -0.954 0.0416   0.387 0.172
+       -1.99[] 
  []
 
 
 Overfull \hbox (43.5pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ##  5 4.22      5   4.45   0.125  -0.226 0.0649   0.512 0.015
+8      -0.478[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ##  6 5.85      6   5.34   0.149   0.508 0.0935   0.483 0.123
+        1.09[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ##  7 6.45      7   6.23   0.174   0.225 0.127    0.511 0.035
+5       0.494[] 
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 462--462
+<<<<<<< HEAD
 []\TU/lmtt/m/n/10 ##  8 6.55      8   7.25   0.156  -0.706  0.166    0.299 0.81
 6       -2.02[] 
  []
@@ -1231,6 +1323,22 @@ Overfull \hbox (54.0pt too wide) in paragraph at lines 462--462
 Overfull \hbox (48.75pt too wide) in paragraph at lines 462--462
 []\TU/lmtt/m/n/10 ## 10 9.21     10   9.07   0.195   0.146  0.260    0.401 0.06
 89       0.443[] 
+=======
+[]\TU/lmtt/m/n/10 ##  8 7.23      8   7.12   0.199   0.109 0.166    0.517 0.011
+8       0.244[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ##  9 8.31      9   8.01   0.224   0.308 0.210    0.504 0.134
+        0.709[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 462--462
+[]\TU/lmtt/m/n/10 ## 10 8.49     10   8.90   0.249  -0.404 0.260    0.491 0.324
+       -0.961[] 
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
  []
 
 File: STA3300_bookdown_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (
@@ -1246,7 +1354,14 @@ type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+<<<<<<< HEAD
 [17] [18] [19] [20
+=======
+[17]
+Underfull \vbox (badness 2027) has occurred while \output is active []
+
+[18] [19] [20
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 
 ]
 Chapter 5.
@@ -1257,21 +1372,37 @@ Chapter 6.
 (STA3300_bookdown.bbl [23] [24
 
 ])
+<<<<<<< HEAD
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 525.
 [25]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 525.
 (STA3300_bookdown.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 525.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 525.
+=======
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 523.
+[25]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 523.
+(STA3300_bookdown.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 523.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 523.
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  28372 strings out of 427669
  512912 string characters out of 3149189
  748269 words of memory out of 3000000
  32150 multiletter control sequences out of 15000+200000
+=======
+ 28370 strings out of 427669
+ 512870 string characters out of 3149189
+ 748207 words of memory out of 3000000
+ 32148 multiletter control sequences out of 15000+200000
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
  538740 words of font info for 78 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,8n,115p,1175b,453s stack positions out of 5000i,500n,10000p,200000b,50000s

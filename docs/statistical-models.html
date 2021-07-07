@@ -142,7 +142,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
 <li class="chapter" data-level="4" data-path="statistical-models.html"><a href="statistical-models.html"><i class="fa fa-check"></i><b>4</b> Statistical Models</a><ul>
 <li class="chapter" data-level="4.1" data-path="statistical-models.html"><a href="statistical-models.html#linear-models-in-r"><i class="fa fa-check"></i><b>4.1</b> Linear Models in R</a></li>
+<<<<<<< HEAD
 <li class="chapter" data-level="4.2" data-path="statistical-models.html"><a href="statistical-models.html#estimating-linear-model-parameters"><i class="fa fa-check"></i><b>4.2</b> Estimating linear model parameters</a></li>
+=======
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 </ul></li>
 <li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
 <li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
@@ -233,6 +236,7 @@ The plot shows the data points and a simple linear regression line fit through t
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
+<<<<<<< HEAD
 ## -0.45524 -0.32220 -0.04306  0.36722  0.46759 
 ## 
 ## Coefficients:
@@ -245,6 +249,20 @@ The plot shows the data points and a simple linear regression line fit through t
 ## Residual standard error: 0.3975 on 8 degrees of freedom
 ## Multiple R-squared:  0.9836, Adjusted R-squared:  0.9816 
 ## F-statistic: 480.6 on 1 and 8 DF,  p-value: 1.978e-08</code></pre>
+=======
+## -0.54588 -0.27918  0.03787  0.13938  0.75196 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.42328    0.27042  -1.565    0.156    
+## X            0.93266    0.04358  21.400 2.39e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.3959 on 8 degrees of freedom
+## Multiple R-squared:  0.9828, Adjusted R-squared:  0.9807 
+## F-statistic: 457.9 on 1 and 8 DF,  p-value: 2.393e-08</code></pre>
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 <p>There is a lot of useful information presented here, however it is not necessarily easy to access and work with in successive computations. This is where the <code>broom</code> package comes in. There are three main functions that allow us to extract pertinent information and store it in data frames, for easy access later. The functions are:</p>
 <ul>
 <li><code>tidy()</code>: returns the statistical findings of the model (such as coefficients)</li>
@@ -265,8 +283,13 @@ The plot shows the data points and a simple linear regression line fit through t
 <pre><code>## # A tibble: 2 x 7
 ##   term        estimate std.error statistic      p.value conf.low conf.high
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+<<<<<<< HEAD
 ## 1 (Intercept)   -0.416    0.272      -1.53 0.164          -1.04      0.210
 ## 2 X              0.959    0.0438     21.9  0.0000000198    0.858     1.06</code></pre>
+=======
+## 1 (Intercept)   -0.423    0.270      -1.57 0.156          -1.05      0.200
+## 2 X              0.933    0.0436     21.4  0.0000000239    0.832     1.03</code></pre>
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 <p>From this we see, for example, that the simple linear regression equation is given by:
 <span class="math display">\[
 \hat Y_i = 0.387 + 0.871\times X_i,  
@@ -281,8 +304,13 @@ and that we cannot reject <span class="math inline">\(H_0: \beta_0=0\)</span> (p
 <pre><code>## # A tibble: 2 x 6
 ##   res.df   rss    df  sumsq statistic p.value
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+<<<<<<< HEAD
 ## 1      8  1.26    NA NA         NA     NA    
 ## 2      9  1.63    -1 -0.371      2.35   0.164</code></pre>
+=======
+## 1      8  1.25    NA NA         NA     NA    
+## 2      9  1.64    -1 -0.384      2.45   0.156</code></pre>
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 <p>We see that there is no significant reduction in sums of squares between the model with the unconstrained intercept and the model with the intercept constrained to be zero. We therefore opt to use the latter model:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="statistical-models.html#cb16-1"></a><span class="kw">tidy</span>(<span class="dt">x =</span> fictitious_lm<span class="fl">.2</span>,</span>
 <span id="cb16-2"><a href="statistical-models.html#cb16-2"></a>     <span class="dt">conf.int =</span> <span class="ot">TRUE</span>,</span>
@@ -290,7 +318,11 @@ and that we cannot reject <span class="math inline">\(H_0: \beta_0=0\)</span> (p
 <pre><code>## # A tibble: 1 x 7
 ##   term  estimate std.error statistic  p.value conf.low conf.high
 ##   &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+<<<<<<< HEAD
 ## 1 X        0.900    0.0217      41.4 1.38e-11    0.851     0.949</code></pre>
+=======
+## 1 X        0.872    0.0217      40.1 1.85e-11    0.823     0.921</code></pre>
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 <p>which has regression equation:
 <span class="math display">\[
 \hat Y_i=0.927\times X_i
@@ -301,7 +333,11 @@ and that we cannot reject <span class="math inline">\(H_0: \beta_0=0\)</span> (p
 <pre><code>## # A tibble: 1 x 12
 ##   r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+<<<<<<< HEAD
 ## 1     0.995         0.994 0.426        NA      NA    NA  -5.13  14.3  14.9
+=======
+## 1     0.994         0.994 0.427        NA      NA    NA  -5.14  14.3  14.9
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 ## # ... with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 <p>Using <code>augment(fictitious_lm.2)</code> we get back an observation-level data frame containing the original data used to fit the model as well as fitted values (<code>.fitted</code>) and standard errors (<code>.se.fit</code>).</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="statistical-models.html#cb20-1"></a><span class="kw">augment</span>(<span class="dt">x =</span> fictitious_lm<span class="fl">.2</span>,</span>
@@ -309,6 +345,7 @@ and that we cannot reject <span class="math inline">\(H_0: \beta_0=0\)</span> (p
 <span id="cb20-3"><a href="statistical-models.html#cb20-3"></a>        <span class="dt">se_fit =</span> <span class="ot">TRUE</span>,</span>
 <span id="cb20-4"><a href="statistical-models.html#cb20-4"></a>        <span class="dt">interval =</span> <span class="st">&quot;none&quot;</span>) <span class="co"># confidence, prediction</span></span></code></pre></div>
 <pre><code>## # A tibble: 10 x 9
+<<<<<<< HEAD
 ##         Y     X .fitted .se.fit  .resid    .hat .sigma  .cooksd .std.resid
 ##     &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 0.0882     1   0.900  0.0217 -0.812  0.00260  0.349 0.00947      -1.91 
@@ -321,6 +358,20 @@ and that we cannot reject <span class="math inline">\(H_0: \beta_0=0\)</span> (p
 ##  8 6.82       8   7.20   0.174  -0.378  0.166    0.428 0.189        -0.973
 ##  9 7.93       9   8.10   0.195  -0.167  0.210    0.447 0.0519       -0.441
 ## 10 9.50      10   9.00   0.217   0.496  0.260    0.403 0.643         1.35</code></pre>
+=======
+##        Y     X .fitted .se.fit  .resid    .hat .sigma  .cooksd .std.resid
+##    &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+##  1 0.430     1   0.872  0.0217 -0.442  0.00260  0.425 0.00280      -1.04 
+##  2 1.10      2   1.74   0.0435 -0.648  0.0104   0.389 0.0245       -1.53 
+##  3 3.13      3   2.62   0.0652  0.510  0.0234   0.414 0.0350        1.21 
+##  4 2.93      4   3.49   0.0870 -0.560  0.0416   0.405 0.0780       -1.34 
+##  5 4.41      5   4.36   0.109   0.0445 0.0649   0.452 0.000807      0.108
+##  6 5.47      6   5.23   0.130   0.234  0.0935   0.444 0.0344        0.577
+##  7 5.56      7   6.11   0.152  -0.546  0.127    0.403 0.274        -1.37 
+##  8 7.08      8   6.98   0.174   0.102  0.166    0.451 0.0135        0.261
+##  9 8.01      9   7.85   0.196   0.156  0.210    0.448 0.0449        0.411
+## 10 8.96     10   8.72   0.217   0.243  0.260    0.441 0.154         0.661</code></pre>
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 <p>Notice that <code>augment()</code> also appends model-specific statistics that enable deeper exploration of the fit of the model. For example, we can explore how well the model fits by plotting the observed values <code>Y</code> against the fitted values <code>.fitted</code> (compare this to the plot constructed earlier, which was based on the full model with unconstrained intercept).</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="statistical-models.html#cb22-1"></a>p1 =<span class="st"> </span><span class="kw">augment</span>(<span class="dt">x =</span> fictitious_lm<span class="fl">.2</span>) <span class="op">%&gt;%</span></span>
 <span id="cb22-2"><a href="statistical-models.html#cb22-2"></a><span class="st">   </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> X)) <span class="op">+</span></span>
@@ -343,10 +394,15 @@ We could overlay the unconstrained model as follows:</p>
 <span id="cb23-10"><a href="statistical-models.html#cb23-10"></a>               <span class="dt">se =</span> <span class="ot">FALSE</span>,</span>
 <span id="cb23-11"><a href="statistical-models.html#cb23-11"></a>               <span class="dt">colour =</span> <span class="st">&quot;magenta&quot;</span>) <span class="op">+</span></span>
 <span id="cb23-12"><a href="statistical-models.html#cb23-12"></a><span class="st">   </span><span class="kw">theme_classic</span>()</span></code></pre></div>
+<<<<<<< HEAD
 <p><img src="STA3300_bookdown_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="estimating-linear-model-parameters" class="section level2">
 <h2><span class="header-section-number">4.2</span> Estimating linear model parameters</h2>
+=======
+<p><img src="STA3300_bookdown_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+## Estimating linear model parameters</p>
+>>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 <p>During model fitting, parameters can be estimated using a variety of estimation methods. The methods of ordinary least squares (OLS), maximum likelihood (ML) and restricted maximum likelihood (REML) are the most common. The OLS estimates of parameters minimize the sum of squared deviations between the observed and fitted values (a function of the model parameters). There are several variants on the method of ordinary least squares: weighted least squares can accommodate data that varies in quality and generalized least squares can accommodate heterogeneous variances and correlated data. The model we’ve been looking at is usually referred to as the general linear model (and it was once the most general linear model, but it is not very general by today’s standards). Broadly speaking we consider such a model with purely continuous predictor variables to be a <strong>regression</strong> model, while a model with purely categorical predictors is an <strong>analysis of variance (ANOVA)</strong> model. Models that incorporate both continuous and categorical predictors are <strong>analysis of covariance (ANCOVA)</strong> models.</p>
 <p>ML estimators estimate model parameters such that the (log) likelihood of obtaining the observed data is maximized. Under standard assumptions (normal data, constant variance, independent observations) the ML estimates are identical to the OLS estimates. However, maximum likelihood parameter estimation extends beyond the general linear model to the so-called “generalized” linear model, which are not restricted to normally distributed errors and response. Instead they generalize to any distribution belonging to the family of distribution models called exponential dispersion models (which include normal, binomial, Poisson, gamma, negative binomial and others).</p>
 
