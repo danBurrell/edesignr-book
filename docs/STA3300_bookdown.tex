@@ -318,34 +318,19 @@ To examine the estimated parameters (and hypothesis tests) from the fitted model
 ## lm(formula = Y ~ 1 + X, data = fictitious_data)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-<<<<<<< HEAD
-## -0.72350 -0.05239  0.06048  0.19485  0.58455 
+##     Min      1Q  Median      3Q     Max 
+## -0.6988 -0.4738 -0.2918  0.5061  1.1202 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -0.12273    0.27348  -0.449    0.666    
-## X            0.92416    0.04408  20.968 2.81e-08 ***
+## (Intercept)  0.80616    0.44577   1.808    0.108    
+## X            0.79420    0.07184  11.055    4e-06 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.4003 on 8 degrees of freedom
-## Multiple R-squared:  0.9821, Adjusted R-squared:  0.9799 
-## F-statistic: 439.6 on 1 and 8 DF,  p-value: 2.809e-08
-=======
-## -0.83186 -0.25738  0.04873  0.22604  0.69947 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -0.28573    0.33948  -0.842    0.424    
-## X            0.93048    0.05471  17.007 1.45e-07 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 0.4969 on 8 degrees of freedom
-## Multiple R-squared:  0.9731, Adjusted R-squared:  0.9697 
-## F-statistic: 289.2 on 1 and 8 DF,  p-value: 1.451e-07
->>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
+## Residual standard error: 0.6525 on 8 degrees of freedom
+## Multiple R-squared:  0.9386, Adjusted R-squared:  0.9309 
+## F-statistic: 122.2 on 1 and 8 DF,  p-value: 3.996e-06
 \end{verbatim}
 
 There is a lot of useful information presented here, however it is not necessarily easy to access and work with in successive computations. This is where the \texttt{broom} package comes in. There are three main functions that allow us to extract pertinent information and store it in data frames, for easy access later. The functions are:
@@ -379,17 +364,10 @@ Using \texttt{tidy(fictitious\_lm)} we can extract the pertitent statistical inf
 
 \begin{verbatim}
 ## # A tibble: 2 x 7
-<<<<<<< HEAD
-##   term        estimate std.error statistic      p.value conf.low conf.high
-##   <chr>          <dbl>     <dbl>     <dbl>        <dbl>    <dbl>     <dbl>
-## 1 (Intercept)   -0.123    0.273     -0.449 0.666          -0.753     0.508
-## 2 X              0.924    0.0441    21.0   0.0000000281    0.823     1.03
-=======
-##   term        estimate std.error statistic     p.value conf.low conf.high
-##   <chr>          <dbl>     <dbl>     <dbl>       <dbl>    <dbl>     <dbl>
-## 1 (Intercept)   -0.286    0.339     -0.842 0.424         -1.07      0.497
-## 2 X              0.930    0.0547    17.0   0.000000145    0.804     1.06
->>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
+##   term        estimate std.error statistic    p.value conf.low conf.high
+##   <chr>          <dbl>     <dbl>     <dbl>      <dbl>    <dbl>     <dbl>
+## 1 (Intercept)    0.806    0.446       1.81 0.108        -0.222     1.83 
+## 2 X              0.794    0.0718     11.1  0.00000400    0.629     0.960
 \end{verbatim}
 
 From this we see, for example, that the simple linear regression equation is given by:
@@ -411,17 +389,10 @@ and that we cannot reject \(H_0: \beta_0=0\) (p = 0.334), but we strongly reject
 
 \begin{verbatim}
 ## # A tibble: 2 x 6
-<<<<<<< HEAD
-##   res.df   rss    df   sumsq statistic p.value
-##    <dbl> <dbl> <dbl>   <dbl>     <dbl>   <dbl>
-## 1      8  1.28    NA NA         NA      NA    
-## 2      9  1.31    -1 -0.0323     0.201   0.666
-=======
-##   res.df   rss    df  sumsq statistic p.value
-##    <dbl> <dbl> <dbl>  <dbl>     <dbl>   <dbl>
-## 1      8  1.98    NA NA        NA      NA    
-## 2      9  2.15    -1 -0.175     0.708   0.424
->>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
+##   res.df   rss    df sumsq statistic p.value
+##    <dbl> <dbl> <dbl> <dbl>     <dbl>   <dbl>
+## 1      8  3.41    NA NA        NA     NA    
+## 2      9  4.80    -1 -1.39      3.27   0.108
 \end{verbatim}
 
 We see that there is no significant reduction in sums of squares between the model with the unconstrained intercept and the model with the intercept constrained to be zero. We therefore opt to use the latter model:
@@ -436,13 +407,9 @@ We see that there is no significant reduction in sums of squares between the mod
 
 \begin{verbatim}
 ## # A tibble: 1 x 7
-##   term  estimate std.error statistic  p.value conf.low conf.high
-##   <chr>    <dbl>     <dbl>     <dbl>    <dbl>    <dbl>     <dbl>
-<<<<<<< HEAD
-## 1 X        0.907    0.0195      46.5 4.88e-12    0.863     0.951
-=======
-## 1 X        0.890    0.0249      35.7 5.24e-11    0.833     0.946
->>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
+##   term  estimate std.error statistic       p.value conf.low conf.high
+##   <chr>    <dbl>     <dbl>     <dbl>         <dbl>    <dbl>     <dbl>
+## 1 X        0.909    0.0372      24.4 0.00000000154    0.825     0.994
 \end{verbatim}
 
 which has regression equation:
@@ -463,11 +430,7 @@ Using \texttt{glance(fictitious\_lm.2)} we can obtain a one-row summary of the r
 ## # A tibble: 1 x 12
 ##   r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
 ##       <dbl>         <dbl> <dbl>     <dbl>   <dbl> <dbl>  <dbl> <dbl> <dbl>
-<<<<<<< HEAD
-## 1     0.996         0.995 0.382        NA      NA    NA  -4.04  12.1  12.7
-=======
-## 1     0.993         0.992 0.489        NA      NA    NA  -6.51  17.0  17.6
->>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
+## 1     0.985         0.984 0.730        NA      NA    NA  -10.5  25.0  25.6
 ## # ... with 3 more variables: deviance <dbl>, df.residual <int>, nobs <int>
 \end{verbatim}
 
@@ -484,33 +447,18 @@ Using \texttt{augment(fictitious\_lm.2)} we get back an observation-level data f
 
 \begin{verbatim}
 ## # A tibble: 10 x 9
-<<<<<<< HEAD
-##        Y     X .fitted .se.fit  .resid    .hat .sigma  .cooksd .std.resid
-##    <dbl> <int>   <dbl>   <dbl>   <dbl>   <dbl>  <dbl>    <dbl>      <dbl>
-##  1 0.829     1   0.907  0.0195 -0.0773 0.00260  0.404 0.000107    -0.202 
-##  2 1.20      2   1.81   0.0390 -0.610  0.0104   0.343 0.0270      -1.60  
-##  3 2.90      3   2.72   0.0584  0.176  0.0234   0.400 0.00519      0.466 
-##  4 3.56      4   3.63   0.0779 -0.0659 0.0416   0.405 0.00135     -0.176 
-##  5 4.67      5   4.53   0.0974  0.134  0.0649   0.402 0.00917      0.363 
-##  6 6.01      6   5.44   0.117   0.567  0.0935   0.346 0.251        1.56  
-##  7 6.55      7   6.35   0.136   0.203  0.127    0.398 0.0473       0.570 
-##  8 6.55      8   7.25   0.156  -0.706  0.166    0.299 0.816       -2.02  
-##  9 8.13      9   8.16   0.175  -0.0303 0.210    0.405 0.00213     -0.0894
-## 10 9.21     10   9.07   0.195   0.146  0.260    0.401 0.0689       0.443
-=======
-##        Y     X .fitted .se.fit .resid    .hat .sigma .cooksd .std.resid
-##    <dbl> <int>   <dbl>   <dbl>  <dbl>   <dbl>  <dbl>   <dbl>      <dbl>
-##  1 0.350     1   0.890  0.0249 -0.540 0.00260  0.482 0.00319     -1.11 
-##  2 1.60      2   1.78   0.0498 -0.175 0.0104   0.515 0.00135     -0.359
-##  3 3.21      3   2.67   0.0747  0.536 0.0234   0.482 0.0295       1.11 
-##  4 2.60      4   3.56   0.0997 -0.954 0.0416   0.387 0.172       -1.99 
-##  5 4.22      5   4.45   0.125  -0.226 0.0649   0.512 0.0158      -0.478
-##  6 5.85      6   5.34   0.149   0.508 0.0935   0.483 0.123        1.09 
-##  7 6.45      7   6.23   0.174   0.225 0.127    0.511 0.0355       0.494
-##  8 7.23      8   7.12   0.199   0.109 0.166    0.517 0.0118       0.244
-##  9 8.31      9   8.01   0.224   0.308 0.210    0.504 0.134        0.709
-## 10 8.49     10   8.90   0.249  -0.404 0.260    0.491 0.324       -0.961
->>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
+##        Y     X .fitted .se.fit  .resid    .hat .sigma   .cooksd .std.resid
+##    <dbl> <int>   <dbl>   <dbl>   <dbl>   <dbl>  <dbl>     <dbl>      <dbl>
+##  1  2.08     1   0.909  0.0372  1.17   0.00260  0.654 0.00673       1.61  
+##  2  2.11     2   1.82   0.0744  0.291  0.0104   0.768 0.00169       0.401 
+##  3  2.68     3   2.73   0.112  -0.0434 0.0234   0.774 0.0000867    -0.0602
+##  4  3.57     4   3.64   0.149  -0.0631 0.0416   0.774 0.000338     -0.0882
+##  5  5.29     5   4.55   0.186   0.745  0.0649   0.725 0.0772        1.05  
+##  6  5.08     6   5.46   0.223  -0.380  0.0935   0.762 0.0309       -0.547 
+##  7  7.49     7   6.37   0.261   1.12   0.127    0.648 0.393         1.64  
+##  8  6.86     8   7.27   0.298  -0.414  0.166    0.758 0.0768       -0.621 
+##  9  8.53     9   8.18   0.335   0.344  0.210    0.762 0.0751        0.531 
+## 10  8.05    10   9.09   0.372  -1.04   0.260    0.645 0.969        -1.66
 \end{verbatim}
 
 Notice that \texttt{augment()} also appends model-specific statistics that enable deeper exploration of the fit of the model. For example, we can explore how well the model fits by plotting the observed values \texttt{Y} against the fitted values \texttt{.fitted} (compare this to the plot constructed earlier, which was based on the full model with unconstrained intercept).
@@ -548,13 +496,9 @@ We could overlay the unconstrained model as follows:
 \end{Shaded}
 
 \includegraphics{STA3300_bookdown_files/figure-latex/unnamed-chunk-14-1.pdf}
-<<<<<<< HEAD
 
 \hypertarget{estimating-linear-model-parameters}{%
 \section{Estimating linear model parameters}\label{estimating-linear-model-parameters}}
-=======
-\#\# Estimating linear model parameters
->>>>>>> 3fe36f1f176829be6408095379fda60f5d6cf1f4
 
 During model fitting, parameters can be estimated using a variety of estimation methods. The methods of ordinary least squares (OLS), maximum likelihood (ML) and restricted maximum likelihood (REML) are the most common. The OLS estimates of parameters minimize the sum of squared deviations between the observed and fitted values (a function of the model parameters). There are several variants on the method of ordinary least squares: weighted least squares can accommodate data that varies in quality and generalized least squares can accommodate heterogeneous variances and correlated data. The model we've been looking at is usually referred to as the general linear model (and it was once the most general linear model, but it is not very general by today's standards). Broadly speaking we consider such a model with purely continuous predictor variables to be a \textbf{regression} model, while a model with purely categorical predictors is an \textbf{analysis of variance (ANOVA)} model. Models that incorporate both continuous and categorical predictors are \textbf{analysis of covariance (ANCOVA)} models.
 
