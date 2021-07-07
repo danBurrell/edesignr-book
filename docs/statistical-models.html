@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Statistical Models | Design and Analysis of Experiments with R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Statistical Models | Design and Analysis of Experiments with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Statistical Models | Design and Analysis of Experiments with R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="D. L. Burrell" />
+
+
+<meta name="date" content="2021-07-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="literature.html"/>
+<link rel="next" href="applications.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Design and Analysis of Experiments with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="4" data-path="statistical-models.html"><a href="statistical-models.html"><i class="fa fa-check"></i><b>4</b> Statistical Models</a><ul>
+<li class="chapter" data-level="4.1" data-path="statistical-models.html"><a href="statistical-models.html#linear-models-in-r"><i class="fa fa-check"></i><b>4.1</b> Linear Models in R</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Design and Analysis of Experiments with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistical-models" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Statistical Models</h1>
+<p>One of the great scientific achievements humanity has made is the ability to conceptualize complex phenomena and processes in the natural world through models that amplify the pertinent facts and relationships of interest and provide a logical platform from which to study systems that drive decision-making. Most scientific models can be expressed as mathematical abstractions. Two broad classes of mathematical models are <strong>deterministic models</strong> and <strong>stochastic models</strong>. Broadly speaking, deterministic models leave nothing to chance and blatantly ignore uncertainties. For example the concentration <span class="math inline">\(c\)</span> of a pollutant in a river at a point <span class="math inline">\(x\)</span> and time <span class="math inline">\(t\)</span> can be modeled as:
+<span class="math display">\[
+c(x,t)=c_0 (x-vt)e^{-kt},
+\]</span>
+where <span class="math inline">\(c_0(x)\)</span> is the initial pollutant concentration at point <span class="math inline">\(x\)</span>, <span class="math inline">\(v\)</span> is the water velocity, and <span class="math inline">\(k\)</span> is a proportionality constant, measuring the efficiency of bacterial decomposition of the pollutant. This is a deterministic model: given inputs <span class="math inline">\(x, v\)</span> and <span class="math inline">\(c_0\)</span>, the pollutant concentration at location <span class="math inline">\(x\)</span> and time <span class="math inline">\(t\)</span> is predicted with certainty. Such a model makes a very strong assumption that the model is correct and the inputs are measured with perfect precision and accuracy. But the pollutant concentration makes certain assumptions: (i) that the pollutant concentration is uniform in all directions except downstream flow, (ii) there are no diffusive effects due to to contour irregularities and turbulence, (iii) the pollutant decays as a negative exponential due to bacterial action, (iv) the bacterial efficiency is time-homogeneous, and (v) there is thorough mixing of the pollutant in the water. These assumptions are reasonable, but they not necessarily (always) true. The uncertainty of the effects at a particular location along the river and point in time can be incorporated by casting the model stochastically:
+<span class="math display">\[
+c(x,t) = c_0 (x-vt)e^{-kt} + e
+\]</span>
+where <span class="math inline">\(e \sim D(0,\sigma^2)\)</span>, for some probability distribution <span class="math inline">\(D\)</span>. Allowing for the random deviation <span class="math inline">\(e\)</span> we are now claiming that <span class="math inline">\(c(x,t)\)</span> is a random variable with expectation:
+<span class="math display">\[
+\mathbb E[c(x,t)] = c_0 (x-vt)e^{-kt} 
+\]</span></p>
+<div id="linear-models-in-r" class="section level2">
+<h2><span class="header-section-number">4.1</span> Linear Models in R</h2>
+<p>Most R functions uses a formula representation to represent regression models (for continuous variables) or means and effects models (for categorical variables):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="statistical-models.html#cb3-1"></a>response <span class="op">~</span><span class="st"> </span>model</span></code></pre></div>
+<p>where the tilde (~) defines a model formula and <code>model</code> represents a set of terms to include as predictors in the model. Terms are included by their variable names and various operators such as <code>+</code> (include in model), <code>-</code> (exclude from model), <code>:</code> (interaction), <code>*</code> (full factorial structure), and so on. The intercept term (which can be explicitly denoted in a model as a <code>1</code>) is implicitly defined and need not be specified (although I often do for completeness). Thus the following model formulae are equivalent (all include the intercept):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="statistical-models.html#cb4-1"></a>Y <span class="op">~</span><span class="st"> </span>X</span>
+<span id="cb4-2"><a href="statistical-models.html#cb4-2"></a>Y <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>X</span>
+<span id="cb4-3"><a href="statistical-models.html#cb4-3"></a>Y <span class="op">~</span><span class="st"> </span>X <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<p>whereas these formulae express different ways of excluding the intercept:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="statistical-models.html#cb5-1"></a>Y <span class="op">~</span><span class="st"> </span><span class="dv">-1</span> <span class="op">+</span><span class="st"> </span>X</span>
+<span id="cb5-2"><a href="statistical-models.html#cb5-2"></a>Y <span class="op">~</span><span class="st"> </span>X <span class="op">-</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<p>Linear models are fitted using the method of ordinary least squares by providing the model formula as an argument to the <code>lm()</code> function. For example, we could generate a fictitious response variable (<code>Y</code>) and a fictitious continuous predictor (<code>X</code>) as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="statistical-models.html#cb6-1"></a><span class="co"># Load packages</span></span>
+<span id="cb6-2"><a href="statistical-models.html#cb6-2"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(pacman)) <span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: pacman</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="statistical-models.html#cb8-1"></a><span class="kw">library</span>(pacman)</span>
+<span id="cb8-2"><a href="statistical-models.html#cb8-2"></a><span class="kw">p_load</span>(tidyverse)</span>
+<span id="cb8-3"><a href="statistical-models.html#cb8-3"></a></span>
+<span id="cb8-4"><a href="statistical-models.html#cb8-4"></a><span class="co"># Generate data set</span></span>
+<span id="cb8-5"><a href="statistical-models.html#cb8-5"></a>N =<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb8-6"><a href="statistical-models.html#cb8-6"></a>fictitious_data =<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb8-7"><a href="statistical-models.html#cb8-7"></a>   <span class="dt">X =</span> <span class="dv">1</span><span class="op">:</span>N,</span>
+<span id="cb8-8"><a href="statistical-models.html#cb8-8"></a>   <span class="dt">Y =</span> <span class="fl">0.9</span><span class="op">*</span>X <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span>N, <span class="dt">mean=</span><span class="dv">0</span>, <span class="dt">sd=</span><span class="fl">0.5</span>)</span>
+<span id="cb8-9"><a href="statistical-models.html#cb8-9"></a>)</span>
+<span id="cb8-10"><a href="statistical-models.html#cb8-10"></a></span>
+<span id="cb8-11"><a href="statistical-models.html#cb8-11"></a><span class="co"># Plot data</span></span>
+<span id="cb8-12"><a href="statistical-models.html#cb8-12"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> fictitious_data,</span>
+<span id="cb8-13"><a href="statistical-models.html#cb8-13"></a>       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>X, <span class="dt">y=</span>Y)) <span class="op">+</span></span>
+<span id="cb8-14"><a href="statistical-models.html#cb8-14"></a><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb8-15"><a href="statistical-models.html#cb8-15"></a><span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
+<span id="cb8-16"><a href="statistical-models.html#cb8-16"></a>               <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x,</span>
+<span id="cb8-17"><a href="statistical-models.html#cb8-17"></a>               <span class="dt">se =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb8-18"><a href="statistical-models.html#cb8-18"></a>               <span class="dt">colour =</span> <span class="st">&quot;darkgreen&quot;</span>) <span class="op">+</span></span>
+<span id="cb8-19"><a href="statistical-models.html#cb8-19"></a><span class="st">   </span><span class="kw">theme_classic</span>()</span></code></pre></div>
+<p><img src="STA3300_bookdown_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+The plot shows the data points and a simple linear regression line fit through them. To fit the regression in such a way as to be able to work with the estimated parameters we use <code>lm()</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="statistical-models.html#cb9-1"></a><span class="co"># Fit simple linear regression model</span></span>
+<span id="cb9-2"><a href="statistical-models.html#cb9-2"></a>fictitious_lm =<span class="st"> </span><span class="kw">lm</span>(</span>
+<span id="cb9-3"><a href="statistical-models.html#cb9-3"></a>   <span class="dt">formula =</span> Y <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>X,</span>
+<span id="cb9-4"><a href="statistical-models.html#cb9-4"></a>   <span class="dt">data =</span> fictitious_data)</span></code></pre></div>
+<p>To examine the estimated parameters (and hypothesis tests) from the fitted model we can use the function <code>summary()</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="statistical-models.html#cb10-1"></a><span class="co"># Summary of regression </span></span>
+<span id="cb10-2"><a href="statistical-models.html#cb10-2"></a><span class="kw">summary</span>(fictitious_lm)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Y ~ 1 + X, data = fictitious_data)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.54588 -0.27918  0.03787  0.13938  0.75196 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.42328    0.27042  -1.565    0.156    
+## X            0.93266    0.04358  21.400 2.39e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.3959 on 8 degrees of freedom
+## Multiple R-squared:  0.9828, Adjusted R-squared:  0.9807 
+## F-statistic: 457.9 on 1 and 8 DF,  p-value: 2.393e-08</code></pre>
+<p>There is a lot of useful information presented here, however it is not necessarily easy to access and work with in successive computations. This is where the <code>broom</code> package comes in. There are three main functions that allow us to extract pertinent information and store it in data frames, for easy access later. The functions are:</p>
+<ul>
+<li><code>tidy()</code>: returns the statistical findings of the model (such as coefficients)</li>
+<li><code>glance()</code>: returns a concise one-row summary of the model</li>
+<li>`<code>augment()</code>: adds prediction columns to the data being modeled</li>
+</ul>
+<p>Using <code>tidy(fictitious_lm)</code> we can extract the pertitent statistical information such as estimates, standard errors, test statistics and p-values:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="statistical-models.html#cb12-1"></a><span class="co"># Ensure broom package is loaded</span></span>
+<span id="cb12-2"><a href="statistical-models.html#cb12-2"></a><span class="kw">p_load</span>(broom)</span>
+<span id="cb12-3"><a href="statistical-models.html#cb12-3"></a></span>
+<span id="cb12-4"><a href="statistical-models.html#cb12-4"></a><span class="co"># Set output digits to 3 for printing</span></span>
+<span id="cb12-5"><a href="statistical-models.html#cb12-5"></a><span class="kw">options</span>(<span class="dt">digits=</span><span class="dv">3</span>)</span>
+<span id="cb12-6"><a href="statistical-models.html#cb12-6"></a></span>
+<span id="cb12-7"><a href="statistical-models.html#cb12-7"></a><span class="co"># tidy() output</span></span>
+<span id="cb12-8"><a href="statistical-models.html#cb12-8"></a><span class="kw">tidy</span>(<span class="dt">x =</span> fictitious_lm,</span>
+<span id="cb12-9"><a href="statistical-models.html#cb12-9"></a>     <span class="dt">conf.int =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb12-10"><a href="statistical-models.html#cb12-10"></a>     <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 7
+##   term        estimate std.error statistic      p.value conf.low conf.high
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)   -0.423    0.270      -1.57 0.156          -1.05      0.200
+## 2 X              0.933    0.0436     21.4  0.0000000239    0.832     1.03</code></pre>
+<p>From this we see, for example, that the simple linear regression equation is given by:
+<span class="math display">\[
+\hat Y_i = 0.387 + 0.871\times X_i,  
+\]</span>
+and that we cannot reject <span class="math inline">\(H_0: \beta_0=0\)</span> (p = 0.334), but we strongly reject <span class="math inline">\(H_0:\beta_1 = 0\)</span> (p = 0.000000536), indicating that a model with no zero intercept will be just as good:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="statistical-models.html#cb14-1"></a>fictitious_lm<span class="fl">.2</span> =<span class="st"> </span><span class="kw">lm</span>(</span>
+<span id="cb14-2"><a href="statistical-models.html#cb14-2"></a>   <span class="dt">formula =</span> Y <span class="op">~</span><span class="st"> </span><span class="dv">-1</span> <span class="op">+</span><span class="st"> </span>X,</span>
+<span id="cb14-3"><a href="statistical-models.html#cb14-3"></a>   <span class="dt">data =</span> fictitious_data)</span>
+<span id="cb14-4"><a href="statistical-models.html#cb14-4"></a></span>
+<span id="cb14-5"><a href="statistical-models.html#cb14-5"></a><span class="co"># Compare the full model to the reduced model with zero intercept</span></span>
+<span id="cb14-6"><a href="statistical-models.html#cb14-6"></a><span class="kw">anova</span>(fictitious_lm, fictitious_lm<span class="fl">.2</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 6
+##   res.df   rss    df  sumsq statistic p.value
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1      8  1.25    NA NA         NA     NA    
+## 2      9  1.64    -1 -0.384      2.45   0.156</code></pre>
+<p>We see that there is no significant reduction in sums of squares between the model with the unconstrained intercept and the model with the intercept constrained to be zero. We therefore opt to use the latter model:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="statistical-models.html#cb16-1"></a><span class="kw">tidy</span>(<span class="dt">x =</span> fictitious_lm<span class="fl">.2</span>,</span>
+<span id="cb16-2"><a href="statistical-models.html#cb16-2"></a>     <span class="dt">conf.int =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb16-3"><a href="statistical-models.html#cb16-3"></a>     <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 7
+##   term  estimate std.error statistic  p.value conf.low conf.high
+##   &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 X        0.872    0.0217      40.1 1.85e-11    0.823     0.921</code></pre>
+<p>which has regression equation:
+<span class="math display">\[
+\hat Y_i=0.927\times X_i
+\]</span></p>
+<p>Using <code>glance(fictitious_lm.2)</code> we can obtain a one-row summary of the reduced model. For the linear model this summary contains various statistics about the fit of the model, such as the residual standard error and <span class="math inline">\(R^2\)</span>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="statistical-models.html#cb18-1"></a><span class="co"># One-row summary at a glance</span></span>
+<span id="cb18-2"><a href="statistical-models.html#cb18-2"></a><span class="kw">glance</span>(<span class="dt">x =</span> fictitious_lm<span class="fl">.2</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 12
+##   r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.994         0.994 0.427        NA      NA    NA  -5.14  14.3  14.9
+## # ... with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+<p>Using <code>augment(fictitious_lm.2)</code> we get back an observation-level data frame containing the original data used to fit the model as well as fitted values (<code>.fitted</code>) and standard errors (<code>.se.fit</code>).</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="statistical-models.html#cb20-1"></a><span class="kw">augment</span>(<span class="dt">x =</span> fictitious_lm<span class="fl">.2</span>,</span>
+<span id="cb20-2"><a href="statistical-models.html#cb20-2"></a>        <span class="dt">newdata =</span> <span class="ot">NULL</span>,</span>
+<span id="cb20-3"><a href="statistical-models.html#cb20-3"></a>        <span class="dt">se_fit =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb20-4"><a href="statistical-models.html#cb20-4"></a>        <span class="dt">interval =</span> <span class="st">&quot;none&quot;</span>) <span class="co"># confidence, prediction</span></span></code></pre></div>
+<pre><code>## # A tibble: 10 x 9
+##        Y     X .fitted .se.fit  .resid    .hat .sigma  .cooksd .std.resid
+##    &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+##  1 0.430     1   0.872  0.0217 -0.442  0.00260  0.425 0.00280      -1.04 
+##  2 1.10      2   1.74   0.0435 -0.648  0.0104   0.389 0.0245       -1.53 
+##  3 3.13      3   2.62   0.0652  0.510  0.0234   0.414 0.0350        1.21 
+##  4 2.93      4   3.49   0.0870 -0.560  0.0416   0.405 0.0780       -1.34 
+##  5 4.41      5   4.36   0.109   0.0445 0.0649   0.452 0.000807      0.108
+##  6 5.47      6   5.23   0.130   0.234  0.0935   0.444 0.0344        0.577
+##  7 5.56      7   6.11   0.152  -0.546  0.127    0.403 0.274        -1.37 
+##  8 7.08      8   6.98   0.174   0.102  0.166    0.451 0.0135        0.261
+##  9 8.01      9   7.85   0.196   0.156  0.210    0.448 0.0449        0.411
+## 10 8.96     10   8.72   0.217   0.243  0.260    0.441 0.154         0.661</code></pre>
+<p>Notice that <code>augment()</code> also appends model-specific statistics that enable deeper exploration of the fit of the model. For example, we can explore how well the model fits by plotting the observed values <code>Y</code> against the fitted values <code>.fitted</code> (compare this to the plot constructed earlier, which was based on the full model with unconstrained intercept).</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="statistical-models.html#cb22-1"></a>p1 =<span class="st"> </span><span class="kw">augment</span>(<span class="dt">x =</span> fictitious_lm<span class="fl">.2</span>) <span class="op">%&gt;%</span></span>
+<span id="cb22-2"><a href="statistical-models.html#cb22-2"></a><span class="st">   </span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> X)) <span class="op">+</span></span>
+<span id="cb22-3"><a href="statistical-models.html#cb22-3"></a><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> Y), <span class="dt">colour=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb22-4"><a href="statistical-models.html#cb22-4"></a><span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">y =</span> .fitted), <span class="dt">colour=</span><span class="st">&quot;magenta&quot;</span>) <span class="op">+</span></span>
+<span id="cb22-5"><a href="statistical-models.html#cb22-5"></a><span class="st">   </span><span class="kw">theme_classic</span>()</span>
+<span id="cb22-6"><a href="statistical-models.html#cb22-6"></a></span>
+<span id="cb22-7"><a href="statistical-models.html#cb22-7"></a>p1</span></code></pre></div>
+<p><img src="STA3300_bookdown_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+We could overlay the unconstrained model as follows:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="statistical-models.html#cb23-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> fictitious_data,</span>
+<span id="cb23-2"><a href="statistical-models.html#cb23-2"></a>       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>X, <span class="dt">y=</span>Y)) <span class="op">+</span></span>
+<span id="cb23-3"><a href="statistical-models.html#cb23-3"></a><span class="st">   </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb23-4"><a href="statistical-models.html#cb23-4"></a><span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
+<span id="cb23-5"><a href="statistical-models.html#cb23-5"></a>               <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x,</span>
+<span id="cb23-6"><a href="statistical-models.html#cb23-6"></a>               <span class="dt">se =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb23-7"><a href="statistical-models.html#cb23-7"></a>               <span class="dt">colour =</span> <span class="st">&quot;darkgreen&quot;</span>) <span class="op">+</span></span>
+<span id="cb23-8"><a href="statistical-models.html#cb23-8"></a><span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
+<span id="cb23-9"><a href="statistical-models.html#cb23-9"></a>               <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span><span class="dv">-1</span> <span class="op">+</span><span class="st"> </span>x,</span>
+<span id="cb23-10"><a href="statistical-models.html#cb23-10"></a>               <span class="dt">se =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb23-11"><a href="statistical-models.html#cb23-11"></a>               <span class="dt">colour =</span> <span class="st">&quot;magenta&quot;</span>) <span class="op">+</span></span>
+<span id="cb23-12"><a href="statistical-models.html#cb23-12"></a><span class="st">   </span><span class="kw">theme_classic</span>()</span></code></pre></div>
+<p><img src="STA3300_bookdown_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+## Estimating linear model parameters</p>
+<p>During model fitting, parameters can be estimated using a variety of estimation methods. The methods of ordinary least squares (OLS), maximum likelihood (ML) and restricted maximum likelihood (REML) are the most common. The OLS estimates of parameters minimize the sum of squared deviations between the observed and fitted values (a function of the model parameters). There are several variants on the method of ordinary least squares: weighted least squares can accommodate data that varies in quality and generalized least squares can accommodate heterogeneous variances and correlated data. The model we’ve been looking at is usually referred to as the general linear model (and it was once the most general linear model, but it is not very general by today’s standards). Broadly speaking we consider such a model with purely continuous predictor variables to be a <strong>regression</strong> model, while a model with purely categorical predictors is an <strong>analysis of variance (ANOVA)</strong> model. Models that incorporate both continuous and categorical predictors are <strong>analysis of covariance (ANCOVA)</strong> models.</p>
+<p>ML estimators estimate model parameters such that the (log) likelihood of obtaining the observed data is maximized. Under standard assumptions (normal data, constant variance, independent observations) the ML estimates are identical to the OLS estimates. However, maximum likelihood parameter estimation extends beyond the general linear model to the so-called “generalized” linear model, which are not restricted to normally distributed errors and response. Instead they generalize to any distribution belonging to the family of distribution models called exponential dispersion models (which include normal, binomial, Poisson, gamma, negative binomial and others).</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="literature.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["STA3300_bookdown.pdf", "STA3300_bookdown.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
