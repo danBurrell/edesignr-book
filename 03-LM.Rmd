@@ -164,6 +164,7 @@ ggplot(data = fictitious_data,
                colour = "magenta") +
    theme_classic()
 ```
+
 ## Estimating linear model parameters
 
 During model fitting, parameters can be estimated using a variety of estimation methods. The methods of ordinary least squares (OLS), maximum likelihood (ML) and restricted maximum likelihood (REML) are the most common. The OLS estimates of parameters minimize the sum of squared deviations between the observed and fitted values (a function of the model parameters). There are several variants on the method of ordinary least squares: weighted least squares can accommodate data that varies in quality and generalized least squares can accommodate heterogeneous variances and correlated data. The model we've been looking at is usually referred to as the general linear model (and it was once the most general linear model, but it is not very general by today's standards). Broadly speaking we consider such a model with purely continuous predictor variables to be a **regression** model, while a model with purely categorical predictors is an **analysis of variance (ANOVA)** model. Models that incorporate both continuous and categorical predictors are **analysis of covariance (ANCOVA)** models.  

@@ -3,7 +3,9 @@ tab:nice-tab
 prerequisites
 intro
 literature
-methods
+statistical-models
+linear-models-in-r
+estimating-linear-model-parameters
 applications
 example-one
 example-two
